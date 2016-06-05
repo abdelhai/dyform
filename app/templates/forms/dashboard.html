@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<!-- start content -->
+<aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+<!--         <button class="btn btn-block btn-success btn-flat">Create Form <i class="fa fa-plus"></i></button>
+ -->          <form action="/form/create/" method="post" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="name" class="form-control" placeholder="Create a form...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="submit" class="btn btn-flat"><i class="fa fa-plus"></i></button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Your Forms</li>
+                {% if formlinks %}
+                    {% for formlink in formlinks %}
+                        {% if formlink.fid == fid %}
+                            <li class="active">
+                            {% else %}
+                                <li>
+                                {% endif %}
+                                <a href="/data/{{formlink.fid}}"><i class="fa fa-file-text-o"></i> <span>{{formlink.name}}</span></a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                    
+                    </ul><!-- /.sidebar-menu -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+			<div class="content-wrapper">
+				<!-- 	<div class="content-header">
+						<h1>Hello there!</h1>
+				</div> -->
+                {% if fid %}
+                <pre><strong>Form Link: </strong>https://dyform.co/form/{{fid}} <strong>Use this link in your form with a POST method. </strong></pre>
+                {% endif %}
+				<div class="content">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="box box-primary">
+								<div class="box-header with-border">
+									<h3 class="box-title">Submissions</h3>
+								</div>
+								<div class="box-body no-padding">
+									<ul class="nav nav-pills nav-stacked">
+										{% if threads %}
+											{% for thread in threads %}
+												{% if thread.tid == tid %}
+													<li class="active">
+													{% else %}
+														<li>
+														{% endif %}
+														<a href="/data/{{fid}}/thread/{{thread.tid}}"><i class="fa fa-sticky-note-o text-green"></i> <small>{{thread.id}}</small></a></li>
+													{% endfor %}
+												{% endif %}
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-9">
+									<div class="box box-primary">
+										<div class="box-header with-border">
+											<h3 class="box-title">thread: {{tid}}</h3>
+										</div>
+									
+									<div class="box-body no-padding">
+											{% if datas %}
+												<div class="thread-wrapper" style="height:400px;overflow-x: scroll;">
+													{% for data in datas %}
+													<div class="direct-chat-text">
+														{% for key, value in data.load.iteritems() %}
+															
+																<b>{{key|title}}:</b>
+																<p>{{value}}</p>
+															
+														{% endfor %}
+														</div>
+													{% endfor %}
+												</div>
+											{% endif %}
+									</div>
+									</div>
+									{% if main %}
+									<div class="box box-primary">
+										<div class="box-header with-border">
+										
+											<h3 class="box-title">Reply to: {{main.load.email}}</h3>
+										
+											</div><!-- /.box-header -->
+											<div class="box-body">
+											<form action="/data/{{fid}}/thread/{{tid}}/email" method="POST">
+												<div class="form-group">
+												{% if main.load.email %}
+													<textarea name="message" class="form-control"></textarea>
+												{% else %}
+												<textarea class="form-control" disabled></textarea>
+												{% endif %}
+												</div>
+												
+												
+												</div><!-- /.box-body -->
+												<div class="box-footer">
+													<div class="pull-right">
+													{% if main.load.email %}
+													<button type="submit" class="btn btn-success"><i class="fa fa-envelope-o"></i> Send</button>
+													{% else %}
+													<button type="submit" class="btn btn-success"><i class="fa fa-envelope-o" disabled></i> Send</button>
+													{% endif %}
+													</div>
+													
+													</div><!-- /.box-footer -->
+													</form>
+												</div>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+								</div></div>
+							{% endblock %}

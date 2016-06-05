@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Dyform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="static/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="static/css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Source Sans Pro:200,300,regular,600,700,900","Source Code Pro:300,regular,500,600"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+  <script type="text/javascript">
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+analytics.load("gUEUK4gQl7AaoURkoh4PqPkVdRrqZP5z");
+analytics.page()
+}}();
+</script>
+</head>
+<body class="body">
+  <div class="w-nav navbar" data-collapse="none" data-animation="default" data-duration="400" data-contain="1">
+    <div class="w-container nav-container">
+      <a class="w-nav-brand w-clearfix brand" href="#">
+        <div class="brand-typo">_dyform</div>
+        <div class="status">mvp</div>
+      </a>
+      <nav class="w-nav-menu nav-menu" role="navigation">
+      {% if current_user.is_authenticated %}
+      <a class="w-nav-link nav-link" href="/data">Dashboard</a>
+      {% else %}
+      <a class="w-nav-link nav-link" href="/users/login/">Login</a>
+      {% endif %}
+      </nav>
+      <div class="w-nav-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div class="w-section section1">
+    <div class="w-container container1">
+      <div class="w-row">
+        <div class="w-col w-col-7 w-col-stack column-dummy"><img class="dummy-replace-image" src="static/img/Screen Shot 2015-10-11 at 18.44.20.png">
+          <div class="w-clearfix dummy-wrapper">
+            <div class="w-clearfix dummy-form">
+              <h4 class="df-h4">Contact us</h4>
+              <div class="df-field"></div>
+              <div class="df-field"></div>
+              <div class="df-field df-field-lg">
+                <div class="dd-msg-text">Hello...</div>
+              </div>
+              <div class="df-btn"></div>
+            </div>
+            <div class="env-wrapper"><img class="doc" src="static/img/noun_61682.svg">
+            </div>
+            <div class="w-clearfix dummy-dyform">
+              <h4 class="df-h4">_dyform</h4>
+              <div class="dd-msg-wrapper">
+                <div class="dd-from"></div>
+                <div class="dd-bubble1">
+                  <div class="dd-msg-text">Hello...</div>
+                </div>
+              </div>
+              <div class="df-field df-field-lg df-field-ld-dd">
+                <div class="dd-msg-text">How can I help you?</div>
+              </div>
+              <div class="df-btn"></div>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-5 w-col-stack">
+          <h1 class="h1">Transform your <em>Contact Form</em><br>into a flexible communication tool.</h1>
+          <p class="p1">With only one line of code. Try it today for free and get 50% off the premium plan in the first year.</p><a class="w-button btn1" href="/users/register/">GET STARTED NOW</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="h2">How does it work?</h2>
+        <p class="p2">To use Dyform you only need to change the <span class="attr">method</span> to "POST" and the <span class="attr">action</span> to the URL of the form you have created. That's it really.</p>
+        <div class="w-clearfix code1-wrapper">
+          <div class="code1">&lt;form method="<span class="code-var">POST</span>" action="<span class="code-var">https://dyform.co/form/123</span>"&gt;</div>
+        </div>
+        <p class="p2">Now you can enjoy communicating with your customers using the Dyform UI.</p>
+      </div>
+      <div class="w-clearfix footer">
+        <div class="footer-by">A Project by <a class="ma-link" target="_blank" href="http://abdelhai.com/">Mustafa Abdelhai</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

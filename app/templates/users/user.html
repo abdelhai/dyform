@@ -1,0 +1,37 @@
+{% extends "user_base.html" %}
+{% block content %}
+	<div class="register-box">
+		<div class="register-logo">
+			<span>_dyform</span>
+		</div>
+		<div class="register-box-body">
+			<p class="login-box-msg"> User Form</p>
+			
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class=flashes>
+					{% for message in messages %}
+						<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+		<form action="." method="post" class="form">
+			
+			{% for field in form %}
+				<div class="form-group">
+					{% if field.type == "StringField" or field.type == "PasswordField" %}
+						{{ field.label }}
+					{% endif %}
+					{{ field(class_="form-control") }}
+				</div>
+			{% endfor %}
+			<div class="form-group">
+				
+				<button type="submit" class="btn btn-success btn-flat">Submit</button>
+				
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
